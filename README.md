@@ -8,10 +8,10 @@
 
 <br/>
 
-[![在线阅读](https://img.shields.io/badge/📖-在线阅读-9f7aea?style=for-the-badge)](https://lintsinghua.github.io/)
-
 [![GitHub Stars](https://img.shields.io/github/stars/lintsinghua/claude-code-book?style=social)](https://github.com/lintsinghua/claude-code-book/stargazers)
 [![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-lightgrey)](LICENSE)
+
+[![在线阅读](https://img.shields.io/badge/📖-在线阅读-9f7aea?style=for-the-badge)](https://lintsinghua.github.io/)
 
 <img width="2880" height="1558" alt="image" src="https://github.com/user-attachments/assets/39efa7d4-4521-444e-a222-fd0acb756e51" />
 
