@@ -7,6 +7,95 @@
 > - 每条术语后的"章节"字段标注了该术语在正文中首次深入讨论的位置
 > - 技术术语保留英文原文，中文译名仅作辅助理解
 
+## 核心概念关系图
+
+以下图表展示了本书核心术语之间的关系，帮助读者建立整体概念框架：
+
+```mermaid
+flowchart TD
+    subgraph 核心架构["核心架构概念"]
+        LLM["LLM 大语言模型"]
+        AH["Agent Harness<br/>智能体线束"]
+        Agent["Agent 智能体"]
+        ML["Main Loop 主循环"]
+    end
+
+    subgraph 工具系统["工具系统"]
+        TI["Tool Interface<br/>工具接口"]
+        TR["Tool Registry<br/>工具注册表"]
+        BT["Build Tool<br/>工具工厂函数"]
+        Tool["Tool 工具"]
+    end
+
+    subgraph 权限安全["权限与安全"]
+        PP["Permission Pipeline<br/>权限管线"]
+        PM["Permission Mode<br/>权限模式"]
+        TC["Transcript Classifier<br/>转录分类器"]
+        BC["Bash Classifier<br/>Bash 分类器"]
+    end
+
+    subgraph 上下文管理["上下文管理"]
+        CW["Context Window<br/>上下文窗口"]
+        Token["Token 词元"]
+        TB["Token Budget<br/>Token 预算"]
+        Comp["Compaction 压缩"]
+    end
+
+    subgraph 记忆系统["记忆系统"]
+        Memory["Memory 记忆"]
+        CM["CLAUDE.md"]
+        MI["Memory Injection<br/>记忆注入"]
+    end
+
+    LLM --> AH --> Agent --> ML
+    ML --> TR
+    TR --> TI --> Tool
+    BT --> Tool
+    ML --> PP
+    PM --> PP
+    TC --> PP
+    BC --> PP
+    ML --> CW
+    Token --> CW
+    TB --> CW
+    Comp --> CW
+    ML --> MI
+    CM --> MI
+    CM --> Memory
+
+    classDef core fill:#4a90d9,stroke:#2c5f8a,color:#fff
+    classDef tool fill:#8fbc8f,stroke:#5a8a5a,color:#fff
+    classDef security fill:#ef5350,stroke:#c62828,color:#fff
+    classDef context fill:#ff9800,stroke:#e65100,color:#fff
+    classDef mem fill:#ce93d8,stroke:#7b1fa2,color:#fff
+
+    class LLM,AH,Agent,ML core
+    class TI,TR,BT,Tool tool
+    class PP,PM,TC,BC security
+    class CW,Token,TB,Comp context
+    class Memory,CM,MI mem
+```
+
+```mermaid
+flowchart LR
+    subgraph 压缩策略["压缩策略层级"]
+        direction LR
+        MC["Micro Compact<br/>微压缩"] --> AC["Auto Compact<br/>自动压缩"]
+        AC --> HS["History Snip<br/>历史裁剪"]
+        HS --> CC["Context Collapse<br/>上下文折叠"]
+    end
+
+    classDef light fill:#c8e6c9,stroke:#4caf50,color:#333
+    classDef medium fill:#fff9c4,stroke:#fbc02d,color:#333
+    classDef heavy fill:#ffccbc,stroke:#e64a19,color:#333
+    classDef extreme fill:#ef5350,stroke:#b71c1c,color:#fff
+
+    class MC light
+    class AC medium
+    class HS heavy
+    class CC extreme
+```
+
 ---
 
 ## A
